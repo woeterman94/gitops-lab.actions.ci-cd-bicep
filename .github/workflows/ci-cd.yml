@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 env:
   AZURE_RG: github-actions-staged
-  AZURE_SUBSCRIPTION: techoramadbws
+  AZURE_SUBSCRIPTION: 9acc332b-af5d-4a41-9726-8f8bca86b075
   AZURE_LOCATION: eastUS
 jobs:
   Build-Job:
