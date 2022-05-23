@@ -30,4 +30,4 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal --configuration ${{env.configuration }}
       - name: Publish
-        run: dotnet publish --configuration ${{ env.configuration }} --output${{runner.temp }}/publish
+        run: dotnet publish --configuration ${{ env.configuration }} --output ${{ runner.temp }}/publish
