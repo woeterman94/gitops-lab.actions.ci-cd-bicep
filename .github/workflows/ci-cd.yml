@@ -54,4 +54,4 @@ jobs:
       - name: Create Resource Group
         uses: Azure/cli@v1
         with:
-          inlineScript: az group create --name ${{ env.AZURE_RG }} --location ${{env.AZURE-LOCATION }}
+          inlineScript: az group create --name ${{ env.AZURE_RG }} --location ${{env.AZURE_LOCATION }}
