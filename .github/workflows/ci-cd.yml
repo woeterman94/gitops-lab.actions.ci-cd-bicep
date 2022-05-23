@@ -2,32 +2,32 @@ name: .NET
 
 on:
   push:
-    branches: [ main ]
-    paths-ignore: README.md
+    branches: [main]
+    paths-ignore: [README.md]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 env:
- AZURE_RG: github-actions-staged
- AZURE_SUBSCRIPTION: techoramadbws
- AZURE_LOCATION: eastUS
+  AZURE_RG: github-actions-staged
+  AZURE_SUBSCRIPTION: techoramadbws
+  AZURE_LOCATION: eastUS
 jobs:
   Build-Job:
     runs-on: ubuntu-latest
     env:
       configuration: release
     steps:
-    - name: Checkout Sources
-      uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2.0.0
-      with:
-        dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore --configuration ${{ env.configuration }}
-    - name: Test
-      run: dotnet test --no-build --verbosity normal --configuration ${{env.configuration }} 
-    - name: Publish
-      run: dotnet publish --configuration ${{ env.configuration }} --output${{runner.temp }}/publish
+      - name: Checkout Sources
+        uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2.0.0
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore --configuration ${{ env.configuration }}
+      - name: Test
+        run: dotnet test --no-build --verbosity normal --configuration ${{env.configuration }}
+      - name: Publish
+        run: dotnet publish --configuration ${{ env.configuration }} --output${{runner.temp }}/publish
